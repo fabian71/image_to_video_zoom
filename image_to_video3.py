@@ -55,8 +55,10 @@ def copiar_metadados(origem, destino):
             print(f"Erro ao copiar metadados: {res.stderr}")
         else:
             print(f"Metadados copiados de {origem} para {destino}")
+    except FileNotFoundError:
+        print("Aviso: ExifTool não encontrado. Os metadados não serão copiados.")
     except Exception as e:
-        print(f"Erro ao executar exiftool: {e}")
+        print(f"Ocorreu um erro inesperado ao usar o ExifTool: {e}")
 
 def main():
     # Configurações
